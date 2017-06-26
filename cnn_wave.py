@@ -48,15 +48,15 @@ classifier = Sequential()
 #Convolution and MaxPooling
 classifier.add(Conv1D(filters=4,kernel_size=4,activation='relu',input_shape=(X_train.shape[1],1)))
 classifier.add(MaxPooling1D(strides=4))
-#classifier.add(BatchNormalization())
+classifier.add(BatchNormalization())
 
 #Flatten
 classifier.add(Flatten())
 
 #Full Connection
-#classifier.add(Dropout(0.25))
+classifier.add(Dropout(0.25))
 classifier.add(Dense(8, activation='relu'))
-#classifier.add(Dropout(0.25))
+classifier.add(Dropout(0.25))
 classifier.add(Dense(1,activation='sigmoid'))
 
 #Print summary
@@ -65,7 +65,7 @@ print(classifier.summary())
 #Configure the learning process
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-history=classifier.fit(X_train,y_train, batch_size=64, epochs=50, validation_data=(X_test,y_test))
+history=classifier.fit(X_train,y_train, batch_size=64, epochs=5, validation_data=(X_test,y_test))
 
 print(history.history.keys())
 #  "Accuracy"
@@ -93,11 +93,11 @@ def build_classifier():
     classifier = Sequential()
     classifier.add(Conv1D(filters=4,kernel_size=4,activation='relu',input_shape=(X_train.shape[1],1)))
     classifier.add(MaxPooling1D(strides=4))
-    classifier.add(BatchNormalization())
+#    classifier.add(BatchNormalization())
     classifier.add(Flatten())    
-    classifier.add(Dropout(0.25))
+#    classifier.add(Dropout(0.25))
     classifier.add(Dense(8, activation='relu'))
-    classifier.add(Dropout(0.25))
+#    classifier.add(Dropout(0.25))
     classifier.add(Dense(1,activation='sigmoid'))
     classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return classifier
