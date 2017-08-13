@@ -12,13 +12,13 @@ import random
 
 random.seed(5)
 
-training_set = pd.read_csv("dataset/training_set.csv", delimiter=";", header=None)
+training_set = pd.read_csv("dataset/training-set.csv", delimiter=";", header=None)
 X_train = training_set.iloc[:,1:].values
 y_train = training_set.iloc[:,0:1].values
 batch_size = min(X_train.shape[0]/10, 16)
 
 #Import test set
-test_set = pd.read_csv("dataset/test_set.csv", delimiter=";", header=None)
+test_set = pd.read_csv("dataset/test-set.csv", delimiter=";", header=None)
 X_test = test_set.iloc[:,1:].values
 y_test = test_set.iloc[:,0:1].values
 
@@ -63,7 +63,7 @@ print(classifier.summary())
 #Configure the learning process
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-history=classifier.fit(X_train,y_train, batch_size=batch_size, epochs=2000, validation_data=(X_test,y_test))
+history=classifier.fit(X_train,y_train, batch_size=batch_size, epochs=1, validation_data=(X_test,y_test))
 
 print(history.history.keys())
 #  "Accuracy"
@@ -93,3 +93,9 @@ result = classifier.predict(X_test)
 prob = classifier.predict_proba(X_test)
 
 np.savetxt("prob.csv",prob,fmt="%s",delimiter=",")
+
+from keras.models import load_model
+
+classifier.save('FCN.h5')
+
+model = load_model('FCN.h5')
