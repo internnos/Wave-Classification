@@ -110,7 +110,7 @@ plt.ylabel("Amplitude")
 plt.plot(t1,SU13070417[419][1:])
 plt.savefig('VTA/4SU13070417-TEST.png', bbox_inches='tight')
 
-#---------------------------------------------------------------------------------
+##---------------------------------------AMBIGU------------------------------------------
 ##13070422 Sukanalu
 #data = pd.read_csv("13070422.CDM",delim_whitespace=True)
 #z = data.iloc[:,0].values
@@ -291,7 +291,7 @@ data = pd.read_csv("13102100_43.CDM",delim_whitespace=True)
 z = data.iloc[:,0].values
 
 SU13102100_43 = []
-for i in range(361):
+for i in range(390):
     SU13102100_43.append(z[0+i:700+i])
 zeros = np.zeros((len(SU13102100_43),1))
 SU13102100_43 = np.array(np.append(zeros,SU13102100_43,axis=1),dtype=int)
@@ -301,7 +301,7 @@ t1 = np.linspace(0,t*700,700)
 plt.title("13102100_43 Sukanalu")
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
-plt.plot(t1,SU13102100_43[360][1:])
+plt.plot(t1,SU13102100_43[389][1:])
 plt.savefig('VTA/SU13102100_43-TRAINING.png', bbox_inches='tight')
 
 #------------------------------------------------------------------------------
@@ -405,7 +405,7 @@ data = pd.read_csv("13091519_45.CDM",delim_whitespace=True)
 z = data.iloc[:,2].values
 
 SH13091519_45 = []
-for i in range(301):
+for i in range(341):
     SH13091519_45.append(z[0+i:700+i])
 zeros = np.zeros((len(SH13091519_45),1))
 SH13091519_45 = np.array(np.append(zeros,SH13091519_45,axis=1),dtype=int)
@@ -415,10 +415,11 @@ t1 = np.linspace(0,t*700,700)
 plt.title("13091519_45 Sukameriah")
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
-plt.plot(t1,SH13091519_45[300][1:])
+plt.plot(t1,SH13091519_45[340][1:])
 plt.savefig('VTA/SH13091519_45-TRAINING.png', bbox_inches='tight')
 
 #-----------------------------TERBARU COOOY-------------------------------------
+#-----------------------------WARNING-------------------------------------
 #13091519_45 Sukameriah
 data = pd.read_csv("13100200_23.CDM",delim_whitespace=True)
 z = data.iloc[:,2].values
@@ -515,7 +516,7 @@ plt.savefig('VTA/SU13100219_24-TRAINING.png', bbox_inches='tight')
 #plt.savefig('VTA/SU13100204_13-TRAINING.png', bbox_inches='tight')
 
 #----------------------------------------------------------------------
-##13091519_45 Sukanalu
+#13091519_45 Sukanalu
 #data = pd.read_csv("13100400_38.CDM",delim_whitespace=True)
 #z = data.iloc[:,1].values
 #
@@ -572,39 +573,346 @@ plt.savefig('VTA/SH13100400_39-TRAINING.png', bbox_inches='tight')
 #plt.savefig('VTA/13100400_42-TRAINING.png', bbox_inches='tight')
 
 #----------------------------------------------------------------------
-#13091519_45 Sukanalu
-data = pd.read_csv("13100519_25.CDM",delim_whitespace=True)
-z = data.iloc[:,1].values
+##13091519_45 Sukanalu
+#data = pd.read_csv("13100519_25.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13100400_39 = []
+#for i in range(360):
+#    SH13100400_39.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100400_39),1))
+#SH13100400_39 = np.array(np.append(zeros,SH13100400_39,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100400_39 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100400_39[0][1:])
+#plt.savefig('VTA/SH13100400_39-TRAINING.png', bbox_inches='tight')
 
-SH13100400_39 = []
-for i in range(360):
-    SH13100400_39.append(z[0+i:700+i])
-zeros = np.zeros((len(SH13100400_39),1))
-SH13100400_39 = np.array(np.append(zeros,SH13100400_39,axis=1),dtype=int)
+#----------------------------------------------------------------------
+##13091519_45 Sukanalu
+#data = pd.read_csv("13100601_57.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13100601_57 = []
+#for i in range(360):
+#    SH13100601_57.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100601_57),1))
+#SH13100601_57 = np.array(np.append(zeros,SH13100601_57,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100601_57 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100601_57[0][1:])
+#plt.savefig('VTA/SH13100601_57-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+##13091519_45 Sukanalu
+#data = pd.read_csv("13100606_30.CDM",delim_whitespace=True)
+#z = data.iloc[:,1].values
+#
+#SH13100601_57 = []
+#for i in range(360):
+#    SH13100601_57.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100601_57),1))
+#SH13100601_57 = np.array(np.append(zeros,SH13100601_57,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100601_57 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100601_57[0][1:])
+#plt.savefig('VTA/SH13100601_57-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100708_37 Sukameriah
+data = pd.read_csv("13100708_37.CDM",delim_whitespace=True)
+z = data.iloc[:,2].values
+
+SH13100708_37 = []
+for i in range(341):
+    SH13100708_37.append(z[0+i:700+i])
+zeros = np.zeros((len(SH13100708_37),1))
+SH13100708_37 = np.array(np.append(zeros,SH13100708_37,axis=1),dtype=int)
 
 #Check by plotting
 t1 = np.linspace(0,t*700,700)
-plt.title("13100400_39 Sukameriah")
+plt.title("13100708_37 Sukameriah")
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
-plt.plot(t1,SH13100400_39[0][1:])
-plt.savefig('VTA/SH13100400_39-TRAINING.png', bbox_inches='tight')
+plt.plot(t1,SH13100708_37[340][1:])
+plt.savefig('VTA/SH13100708_37-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100715_00 Sukameriah
+data = pd.read_csv("13100715_00.CDM",delim_whitespace=True)
+z = data.iloc[:,2].values
+
+SH13100715_00 = []
+for i in range(321):
+    SH13100715_00.append(z[0+i:700+i])
+zeros = np.zeros((len(SH13100715_00),1))
+SH13100715_00 = np.array(np.append(zeros,SH13100715_00,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("13100715_00 Sukameriah")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,SH13100715_00[320][1:])
+plt.savefig('VTA/SH13100715_00-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+data = pd.read_csv("13100721_12.CDM",delim_whitespace=True)
+z = data.iloc[:,2].values
+
+SH13100721_12 = []
+for i in range(360):
+    SH13100721_12.append(z[0+i:700+i])
+zeros = np.zeros((len(SH13100721_12),1))
+SH13100721_12 = np.array(np.append(zeros,SH13100721_12,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("13100721_12 Sukameriah")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,SH13100721_12[359][1:])
+plt.savefig('VTA/SH13100721_12-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+##13100721_12 Sukameriah
+#data = pd.read_csv("13100808_42.CDM",delim_whitespace=True)
+#z = data.iloc[:,1].values
+#
+#SH13100721_12 = []
+#for i in range(360):
+#    SH13100721_12.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100721_12),1))
+#SH13100721_12 = np.array(np.append(zeros,SH13100721_12,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100721_12 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100721_12[359][1:])
+#plt.savefig('VTA/SH13100721_12-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+##13100721_12 Sukameriah
+#data = pd.read_csv("13100817_36.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13100817_36 = []
+#for i in range(360):
+#    SH13100817_36.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100817_36),1))
+#SH13100817_36 = np.array(np.append(zeros,SH13100817_36,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100817_36 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100817_36[359][1:])
+#plt.savefig('VTA/SH13100817_36-TRAINING.png', bbox_inches='tight')
+
+
+#----------------------------------------------------------------------
+##13100902_28 Sukameriah
+#data = pd.read_csv("13100902_28.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13100902_28 = []
+#for i in range(360):
+#    SH13100902_28.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100902_28),1))
+#SH13100902_28 = np.array(np.append(zeros,SH13100902_28,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100902_28 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100902_28[300][1:])
+#plt.savefig('VTA/SH13100902_28-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+##13100902_28 Sukameriah
+#data = pd.read_csv("13100906_07.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13100906_07 = []
+#for i in range(360):
+#    SH13100906_07.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13100906_07),1))
+#SH13100906_07 = np.array(np.append(zeros,SH13100906_07,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13100906_07 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13100906_07[280][1:])
+#plt.savefig('VTA/SH13100906_07-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+data = pd.read_csv("13101001_10.CDM",delim_whitespace=True)
+z = data.iloc[:,2].values
+
+SH13101001_10 = []
+for i in range(341):
+    SH13101001_10.append(z[0+i:700+i])
+zeros = np.zeros((len(SH13101001_10),1))
+SH13101001_10 = np.array(np.append(zeros,SH13101001_10,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("13101001_10 Sukameriah")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,SH13101001_10[340][1:])
+plt.savefig('VTA/SH13101001_10-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+#data = pd.read_csv("13101003_26.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13101001_10 = []
+#for i in range(341):
+#    SH13101001_10.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13101001_10),1))
+#SH13101001_10 = np.array(np.append(zeros,SH13101001_10,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13101001_10 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13101001_10[340][1:])
+#plt.savefig('VTA/SH13101001_10-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+data = pd.read_csv("13101020_06.CDM",delim_whitespace=True)
+z = data.iloc[:,1].values
+
+L13101020_06 = []
+for i in range(301):
+    L13101020_06.append(z[0+i:700+i])
+zeros = np.zeros((len(L13101020_06),1))
+L13101020_06 = np.array(np.append(zeros,L13101020_06,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("13101020_06 Sukameriah")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,L13101020_06[300][1:])
+plt.savefig('VTA/L13101020_06-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+data = pd.read_csv("13101020_06.CDM",delim_whitespace=True)
+z = data.iloc[:,2].values
+
+SH13101020_06 = []
+for i in range(321):
+    SH13101020_06.append(z[0+i:700+i])
+zeros = np.zeros((len(SH13101020_06),1))
+SH13101020_06 = np.array(np.append(zeros,SH13101020_06,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("SH13101020_06 Sukameriah")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,SH13101020_06[320][1:])
+plt.savefig('VTA/SH13101020_06-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+##13100721_12 Sukameriah
+#data = pd.read_csv("13101020_11.CDM",delim_whitespace=True)
+#z = data.iloc[:,2].values
+#
+#SH13101020_11 = []
+#for i in range(321):
+#    SH13101020_11.append(z[0+i:700+i])
+#zeros = np.zeros((len(SH13101020_11),1))
+#SH13101020_11 = np.array(np.append(zeros,SH13101020_11,axis=1),dtype=int)
+#
+##Check by plotting
+#t1 = np.linspace(0,t*700,700)
+#plt.title("13101020_11 Sukameriah")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Amplitude")
+#plt.plot(t1,SH13101020_11[320][1:])
+#plt.savefig('VTA/SH13101020_11-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+data = pd.read_csv("13101100_32.CDM",delim_whitespace=True)
+z = data.iloc[:,1].values
+
+L13101100_32 = []
+for i in range(321):
+    L13101100_32.append(z[0+i:700+i])
+zeros = np.zeros((len(L13101100_32),1))
+L13101100_32 = np.array(np.append(zeros,L13101100_32,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("13101100_32 Sukanalu")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,L13101100_32[320][1:])
+plt.savefig('VTA/L13101100_32-TRAINING.png', bbox_inches='tight')
+
+#----------------------------------------------------------------------
+#13100721_12 Sukameriah
+data = pd.read_csv("13101100_32.CDM",delim_whitespace=True)
+z = data.iloc[:,2].values
+
+SH13101100_32 = []
+for i in range(321):
+    SH13101100_32.append(z[0+i:700+i])
+zeros = np.zeros((len(SH13101100_32),1))
+SH13101100_32 = np.array(np.append(zeros,SH13101100_32,axis=1),dtype=int)
+
+#Check by plotting
+t1 = np.linspace(0,t*700,700)
+plt.title("13101100_32 Sukameriah")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.plot(t1,SH13101100_32[320][1:])
+plt.savefig('VTA/SH13101100_32-TRAINING.png', bbox_inches='tight')
 
 #------------------------------------------------------------------------------
-training_set = np.concatenate((SH13101207_22, L13070518_50,
+training_set = np.concatenate((SH13101207_22, L13070518_50, 
                                SH13102002_14, SH13102007_25, SU13102100_43,
                                SH13102100_43, SH13091519_45, SH13100200_23, SU13100219_24,
-                               SH13100400_39))
+                               SH13100400_39, SH13100708_37, SH13100715_00, SH13100721_12,
+                               L13101020_06, SH13101020_06, L13101100_32, SH13101100_32
+                               ))
 
 #training_set = np.concatenate((SU13070422,SH13101207_22, L13070518_50,
 #                               SU13070609_46, SH13102002_14, SH13102007_25, SU13102100_43,
 #                               SH13102100_43, SH13091519_45, SH13100200_23, SU13100219_24,
 #                               SH13100400_39))
 
-test_set = np.concatenate((SH13070420_44[[300],:], SU13070322[[300],:], SH13070404[[300],:], 
-                           SU13070415_06	[[300],:], SU13070417[[300],:], SU13070518_50[[300],:],
-                           SU13070607[[300],:], SH13070607[[300],:], SU13102100_43[[300],:],
-                           L13091510_4[[300],:], L13091519_45[[300],:]))
-
+#test_set = np.concatenate((SH13070420_44[[300],:], SU13070322[[300],:], SH13070404[[300],:], 
+#                           SU13070415_06	[[300],:], SU13070417[[300],:], SU13070518_50[[300],:],
+#                           SU13070607[[300],:], SH13070607[[300],:], SU13102100_43[[300],:],
+#                           L13091510_4[[300],:], L13091519_45[[300],:]))
+#
 np.savetxt("VTA-training-set.csv",training_set,delimiter=";",fmt="%s")
-np.savetxt("VTA-test-set.csv",test_set,delimiter=";",fmt="%s")
+#np.savetxt("VTA-test-set.csv",test_set,delimiter=";",fmt="%s")
