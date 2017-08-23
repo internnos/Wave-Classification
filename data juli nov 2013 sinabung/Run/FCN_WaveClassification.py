@@ -42,38 +42,38 @@ from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 
 #FCN
-classifier = Sequential()
+model = Sequential()
 
 #Convolution and MaxPooling
-classifier.add(Conv1D(filters=128, kernel_size=8, activation='relu', strides=1, input_shape=(X_train.shape[1],1),
+model.add(Conv1D(filters=128, kernel_size=8, activation='relu', strides=1, input_shape=(X_train.shape[1],1),
                                                                                             border_mode='same'))
-classifier.add(Dropout(0.2))
-classifier.add(BatchNormalization())
+model.add(Dropout(0.2))
+model.add(BatchNormalization())
 
-classifier.add(Conv1D(filters=256, kernel_size=5, strides=1, activation='relu', border_mode='same'))
-classifier.add(Dropout(0.2))
-classifier.add(BatchNormalization())
+model.add(Conv1D(filters=256, kernel_size=5, strides=1, activation='relu', border_mode='same'))
+model.add(Dropout(0.2))
+model.add(BatchNormalization())
 
-classifier.add(Conv1D(filters=128, kernel_size=3, strides=1, activation='relu', border_mode='same'))
-classifier.add(Dropout(0.2))
-classifier.add(BatchNormalization())
+model.add(Conv1D(filters=128, kernel_size=3, strides=1, activation='relu', border_mode='same'))
+model.add(Dropout(0.2))
+model.add(BatchNormalization())
 
-classifier.add(GlobalAveragePooling1D())
+model.add(GlobalAveragePooling1D())
 
 #Full Connection
-classifier.add(Dense(1,activation='sigmoid'))
+model.add(Dense(1,activation='sigmoid'))
 
 #Print summary
-print(classifier.summary())
+print(model.summary())
 
 #Configure the learning process
-classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 earlyStopping=EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
 
 reduce_lr = ReduceLROnPlateau(monitor = 'val_loss', factor=0.2, patience=5, min_lr=0.001)
 
-history=classifier.fit(X_train,y_train, batch_size=batch_size, epochs=1000
+history=model.fit(X_train,y_train, batch_size=batch_size, epochs=1000
                        , validation_data=(X_test,y_test), callbacks=[reduce_lr, earlyStopping])
 
 
@@ -96,18 +96,18 @@ plt.legend(['train', 'validation'], loc='upper left')
 plt.show()
 
 #---------------------------------------------------------------------------------
-performace = classifier.evaluate(X_test,y_test)
+performace = model.evaluate(X_test,y_test)
 
-y_pred = classifier.predict_classes(X_test)
+y_pred = model.predict_classes(X_test)
 
-result = classifier.predict(X_test)
+result = model.predict(X_test)
 
-prob = classifier.predict_proba(X_test)
+prob = model.predict_proba(X_test)
 
 np.savetxt("prob.csv",prob,fmt="%s",delimiter=",")
 
 from keras.models import load_model
 
-classifier.save('FCN.h5')
+model.save('FCN.h5')
 
 model = load_model('FCN.h5')
