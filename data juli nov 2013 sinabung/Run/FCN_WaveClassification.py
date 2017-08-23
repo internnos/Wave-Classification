@@ -96,18 +96,13 @@ plt.legend(['train', 'validation'], loc='upper left')
 plt.show()
 
 #---------------------------------------------------------------------------------
-performace = model.evaluate(X_test,y_test)
-
-y_pred = model.predict_classes(X_test)
-
-result = model.predict(X_test)
-
 prob = model.predict_proba(X_test)
-
 np.savetxt("prob.csv",prob,fmt="%s",delimiter=",")
-
-from keras.models import load_model
-
-model.save('FCN.h5')
-
-model = load_model('FCN.h5')
+#---------------------------------------------------------------------------------
+# serialize model to JSON
+model_json = model.to_json()
+with open("model.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save_weights("model.h5")
+print("Saved model to disk")
