@@ -47,15 +47,15 @@ classifier = Sequential()
 #Convolution and MaxPooling
 classifier.add(Conv1D(filters=128, kernel_size=8, activation='relu', strides=1, input_shape=(X_train.shape[1],1),
                                                                                             border_mode='same'))
-classifier.add(Dropout(0.2))
+classifier.add(Dropout(0.15))
 classifier.add(BatchNormalization())
 
 classifier.add(Conv1D(filters=256, kernel_size=5, strides=1, activation='relu', border_mode='same'))
-classifier.add(Dropout(0.2))
+classifier.add(Dropout(0.15))
 classifier.add(BatchNormalization())
 
 classifier.add(Conv1D(filters=128, kernel_size=3, strides=1, activation='relu', border_mode='same'))
-classifier.add(Dropout(0.2))
+classifier.add(Dropout(0.15))
 classifier.add(BatchNormalization())
 
 classifier.add(GlobalAveragePooling1D())
@@ -69,9 +69,9 @@ print(classifier.summary())
 #Configure the learning process
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-earlyStopping=EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
+earlyStopping=EarlyStopping(monitor='val_loss', patience=15, verbose=0, mode='auto')
 
-reduce_lr = ReduceLROnPlateau(monitor = 'val_loss', factor=0.2, patience=5, min_lr=0.001)
+reduce_lr = ReduceLROnPlateau(monitor = 'val_loss', factor=0.2, patience=5, min_lr=0.0001)
 
 history=classifier.fit(X_train,y_train, batch_size=batch_size, epochs=1000
                        , validation_data=(X_test,y_test), callbacks=[reduce_lr, earlyStopping])
@@ -85,6 +85,7 @@ plt.title('model accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'validation'], loc='upper left')
+plt.savefig('accuracy.png', bbox_inches='tight')
 plt.show()
 # "Loss"
 plt.plot(history.history['loss'])
@@ -93,21 +94,16 @@ plt.title('model loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'validation'], loc='upper left')
+plt.savefig('loss.png', bbox_inches='tight')
 plt.show()
 
 #---------------------------------------------------------------------------------
-performace = classifier.evaluate(X_test,y_test)
-
-y_pred = classifier.predict_classes(X_test)
-
-result = classifier.predict(X_test)
 
 prob = classifier.predict_proba(X_test)
 
 np.savetxt("prob.csv",prob,fmt="%s",delimiter=",")
 
-from keras.models import load_model
+#---------------------------------------------------------------------------------
 
-classifier.save('FCN.h5')
+# serialize model to JSON
 
-model = load_model('FCN.h5')
