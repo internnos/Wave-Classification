@@ -69,12 +69,12 @@ print(classifier.summary())
 #Configure the learning process
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-earlyStopping=EarlyStopping(monitor='val_loss', patience=0, verbose=0, mode='auto')
+earlyStopping=EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
 
-reduce_lr = ReduceLROnPlateau(monitor = 'loss', factor=0.5, patience=50, min_lr=0.0001)
+reduce_lr = ReduceLROnPlateau(monitor = 'val_loss', factor=0.2, patience=5, min_lr=0.001)
 
 history=classifier.fit(X_train,y_train, batch_size=batch_size, epochs=1000
-                       , validation_data=(X_test,y_test), callbacks=[reduce_lr,earlyStopping])
+                       , validation_data=(X_test,y_test), callbacks=[reduce_lr, earlyStopping])
 
 
 print(history.history.keys())
